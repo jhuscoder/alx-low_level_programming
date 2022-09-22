@@ -1,83 +1,30 @@
-nclude <stdio.h>
 #include "main.h"
+#include <stdio.h>
+
 /**
- * main - prints the biggest prime factor of a number.
+ * rot13 - encoder rot13
+ * @s: pointer to string params
  *
- * Return: Always 0.
+ * Return: *s
  */
-int main(void)
-{
-	long int number;
 
-	number = 612852475143;
-
-	if (isPrime(number) == 1)
-	{
-		printf("%ld\n", number);
-	}
-	else
-	{
-		printf("%ld\n", biggestFactor(number));
-	}
-	return (0);
-}
-/**
- * isPrime - analise if a number is prime or not
- * @n: number to check
- * Return: true if it is prime false if not
- */
-int isPrime(long int n)
+char *rot13(char *s)
 {
 	int i;
+	int j;
+	char data1[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char datarot[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
-	if (n <= 1)
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		return (0);
-	}
-	else if (n == 2)
-	{
-		return (1);
-	}
-	else
-	{
-		for (i = 2; i < n; i++)
+		for (j = 0; j < 52; j++)
 		{
-			if (n % i == 0)
+			if (s[i] == data1[j])
 			{
-				return (0);
-			}
-		}
-	return (1);
-	}
-}
-/**
- * biggestFactor - returns the biggest prime factor of a number
- * @a: number to check
- * Return: biggest factor
- */
-long int biggestFactor(long int a)
-{
-	long int i, factor;
-
-	factor = a;
-	for (i = 2; i <= factor; i++)
-	{
-		if (isPrime(factor) == 1)
-		{
-			break;
-		}
-		else
-		{
-			if ((factor % i == 0) && (isPrime(i) == 1))
-			{
-				factor = factor / i;
-				continue;
-			}
-			else
-			{
-				factor = factor;
+				s[i] = datarot[j];
+				break;
 			}
 		}
 	}
-	return (factor);
+	return (s);
 }
