@@ -1,2 +1,1 @@
-# 0x08. C - Recursion
-## 
+# Recursion in C programming
