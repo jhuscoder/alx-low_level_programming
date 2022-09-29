@@ -17,6 +17,7 @@ int _atoi(char *s)
 	int i;
 	int h, p;
 
+
 	h = 0;
 	p = -1;
 	for (i = 0; s[i] != '\0'; i++)
@@ -35,6 +36,7 @@ int _atoi(char *s)
 				break;
 		}
 	}
+
 	if (p < 0)
 		h *= -1;
 

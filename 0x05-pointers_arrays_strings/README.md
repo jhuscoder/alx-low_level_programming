@@ -1,2 +1,1 @@
-# Pointers in C
-Author Eniola
+## Pointers in C
